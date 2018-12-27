@@ -2,9 +2,10 @@ package com.je.fan.modelA.api;
 
 public class FakeModelAApi extends ModelAApi {
     WindSpeed speed;
-    boolean
+    boolean power;
+    boolean rotation;
+    boolean timeOut;
 
-    @Override
     public void setSpeed(WindSpeed speed) {
         this.speed = speed;
     }
@@ -12,40 +13,44 @@ public class FakeModelAApi extends ModelAApi {
     @Override
     public void turnOn() {
         System.out.println("선풍기 켬");
+        this.power = true;
     }
 
     @Override
     public void turnOff() {
         System.out.println("선풍기 꺼짐");
+        this.power = false;
     }
 
     @Override
     public void startRotation() {
-
+        System.out.println("선풍기 회전시작");
+        this.rotation = true;
     }
 
     @Override
     public void stopRotation() {
-
+        System.out.println("선풍기 회전정지");
+        this.rotation = false;
     }
 
     @Override
     public boolean getPowerButtonStatus() {
-        return false;
+        return power;
     }
 
     @Override
     public WindSpeed getSpeedButtonStatus() {
-        return null;
+        return speed;
     }
 
     @Override
     public boolean getRotationButtonStatus() {
-        return false;
+        return rotation;
     }
 
     @Override
     public boolean isTimeOut() {
-        return false;
+        return timeOut;
     }
 }
